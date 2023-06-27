@@ -1,0 +1,121 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block first_content %}
+
+<div class="container-fluid">
+    <div class="col-ms-3" style="padding-top:1rem">
+
+        <h2>Portal Conciertos</h2>
+        <h3>Infomación de próximos conciertos.</h3>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+  <div>
+    <div class="container mt-5">
+      <h5>Bienvenido a tu portal de conciertos, donde podrás encontrar información acerca de los valores, fechas,
+        lugares de tus artistas favoritos y sus visitas a nuestro país!
+      </h5>
+
+      <br>
+
+      <p style="border:1px">Además de ser un importante proyecto para nuestra clase de programación web, donde intentamos aplicar lo aprendido en lenguaje
+        HTML, CSS, JS y sus librerías.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block second_content %}
+
+<div class="container-fluid">
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/amarazul.jpg' %}" class="d-block w-100 object-fit-scale border rounded"
+          alt="AmarAzul" width="600" height="700">
+        <div id="cap-carr" class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+          <h5><a href="{% url 'conciertos'%}">AMAR AZUL</a></h5>
+          <p>Movistar Arena - 14 de Julio</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/lucybell.png' %}" class="d-block w-100 object-fit-scale border rounded"
+          alt="Lucybell" width="600" height="700">
+        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+          <h5><a href="{% url 'conciertos'%}">LUCYBELL</a></h5>
+          <p>Movistar Arena - 18 de Agosto</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/jaivas.jpg' %}" class="d-block w-100 object-fit-scale border rounded" alt="Jaivas"
+          width="600" height="700">
+        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+          <h5><a href="{% url 'conciertos'%}">LOS JAIVAS</a></h5>
+          <p>Movistar Arena - 17 de Agosto</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/luismiguel.png' %}" class="d-block w-100 object-fit-scale border rounded"
+          alt="Luismi" width="600" height="700">
+        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+          <h5><a href="{% url 'conciertos'%}">LUIS MIGUEL</a></h5>
+          <p>Movistar Arena - 21, 22 y 25 de Agosto</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/lfc.png' %}" class="d-block w-100 object-fit-scale border rounded" alt="Cadillacs"
+          width="600" height="700">
+        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+          <h5><a href="{% url 'conciertos'%}">LOS FABULOSOS CADILLACS</a></h5>
+          <p>Quinta Vergara - 14 de Julio</p>
+        </div>
+      </div>  
+        <div class="carousel-item">
+          <img src="{% static 'img/santaferia.jpg' %}" class="d-block w-100 object-fit-scale border rounded" alt="S"
+            width="600" height="700">
+          <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+            <h5><a href="{% url 'conciertos'%}">SANTAFERIA</a></h5>
+            <p>Teatro Caupolicán - 14 de Agosto</p>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+  </div>  
+</div> 
+
+{% endblock %}
+
+{% block js_ %}
+    <script src="{% static 'core/js/jquery-3.6.4.min.js' %}"></script>
+    <script src="{% static 'core/js/openWeatherMap.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'core/js/popper.min.js' %}"></script>
+    <script src="{% static 'core/js/relojito.js' %}"></script>
+    <script src="{% static 'core/js/darkmode.js' %}"></script>
+{% endblock %}

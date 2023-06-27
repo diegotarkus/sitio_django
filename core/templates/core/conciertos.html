@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Calendario de conciertos{% endblock %}
+
+{% block first_content %}
+<section class="container bg-dark text-white text-center my-4 p-3 rounded">
+    <h1>los conciertos wenos oye</h1>
+</section>
+{% endblock %}
+
+{% block second_content %}
+<section class="container my-4">    
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for c in conciertos %}
+        <div class="col">
+            <div class="card h-100">
+                {% if c.imagen %}
+                <img src="{{c.imagen.url}}" class="card-img-top p-2" alt="{{c.artista}}">
+                {% else %}
+                <img src="{% static 'img/image_not_found.jpg' %}" class="card-img-top" alt="Image not found">
+                {% endif  %}
+                <div class="card-body">
+                    <p class="card-text text-muted">SKU: {{c.idConcierto}}</p>
+                    <p class="card-title fw-bold">{{c.artista}}</p>
+                    <p class="card-text">Valor: ${{c.recinto}}</p>
+                    <p class="card-text">Stock: {{c.fecha}}</p>
+                    <p class="card-text">Desarrollado por: {{c.valores}}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a class="btn btn-primary" href="#">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
