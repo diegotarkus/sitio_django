@@ -20,6 +20,7 @@ def concierto_nuevo(request):
             fecha = form.cleaned_data.get('fecha')
             valores = form.cleaned_data.get('valores')
             imagen = form.cleaned_data.get('imagen')
+            venta = form.cleaned_data.get('venta')
             artista = form.cleaned_data.get('artista')
             recinto = form.cleaned_data.get('recinto')
             obj = Concierto.objects.create(
@@ -27,13 +28,14 @@ def concierto_nuevo(request):
                 fecha = fecha,
                 valores = valores,
                 imagen = imagen,
+                venta = venta,
                 artista = artista,
                 recinto = recinto,                
             )
             obj.save()
-            return redirect (reverse('conciertos') + '?OK')
+            return redirect (reverse('crud-conciertos') + '?OK')
         else:
-            return redirect (reverse('conciertos') + '?FAIL')
+            return redirect (reverse('crud-conciertos') + '?FAIL')
     else:
         form = ConciertoList
     return render (request, 'crud/conciertos-nuevo.html', {'form' : form})
@@ -48,23 +50,23 @@ def concierto_editar(request,concierto_id):
             form = ConciertoList(request.POST, request.FILES, instance=concierto)
             if form.is_valid():
                 form.save()
-                return redirect(reverse('conciertos') + '?UPDATED')
+                return redirect(reverse('crud-conciertos') + '?UPDATED')
             else:
                 return redirect(reverse('conciertos-editar') + concierto_id) 
 
         context = {'form':form}
         return render(request,'crud/conciertos-editar.html',context)
     except:
-        return redirect(reverse('concierto') + '?NO_EXISTS')
+        return redirect(reverse('crud-conciertos') + '?NO_EXISTS')
     
     
 def concierto_borrar(request,concierto_id):
     try:
         concierto = Concierto.objects.get(idConcierto = concierto_id)
         concierto.delete()
-        return redirect(reverse('conciertos') + '?DELETED')
+        return redirect(reverse('crud-conciertos') + '?DELETED')
     except:
-        return redirect(reverse('conciertos') + '?FAIL')
+        return redirect(reverse('crud-conciertos') + '?FAIL')
     
 def concierto_info(request, concierto_id):
     try:
@@ -73,9 +75,9 @@ def concierto_info(request, concierto_id):
             context = {'concierto':concierto}
             return render(request,'crud/conciertos-info.html',context)
         else:
-            return redirect(reverse('conciertos') + '?OK')
+            return redirect(reverse('crud-conciertos') + '?OK')
     except:
-        return redirect(reverse('conciertos') + '?FAIL')
+        return redirect(reverse('crud-conciertos') + '?FAIL')
     
 ## ARTISTAS
 
@@ -92,12 +94,14 @@ def artista_nuevo(request):
             pais = form.cleaned_data.get('pais')
             anio = form.cleaned_data.get('anio')
             genero = form.cleaned_data.get('genero')
+            playlist = form.cleaned_data.get('playlist')
             obj = Artista.objects.create(
                 idArtista = idArtista,
                 nomArtista = nomArtista,
                 pais = pais,
                 anio = anio,
-                genero = genero            
+                genero = genero,
+                playlist = playlist            
             )
             obj.save()
             return redirect (reverse('artistas') + '?OK')

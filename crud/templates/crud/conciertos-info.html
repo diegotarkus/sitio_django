@@ -29,10 +29,12 @@
                 <li class="mb-2">Recinto: <p class="fw-bold">{{concierto.recinto}}</p></li>
                 <li class="mb-2">Fecha: <p class="fw-bold">{{concierto.fecha}}</p></li>
                 <li class="mb-2">Valores: <p class="fw-bold">{{concierto.valores}}</p></li>
+                <li class="mb-2"><p class="fw-bold"><a class="btn btn-dark" href="{{concierto.venta}}">Link</a></p></li>
+                <li class="mb-2"><p class="fw-bold"><a class="btn btn-dark" href="{{concierto.artista.playlist}}">Playlist</a></p></li>
             </ul>
             <div class="row">
                 <div class="col-2">
-                    <a class="btn btn-outline-primary" href="{% url 'conciertos' %}">Volver</a>
+                    <a class="btn btn-outline-primary" href="{% url 'crud-conciertos' %}">Volver</a>
                 </div>
                 <div class="col-2">
                     <a class="btn btn-outline-secondary" href="{% url 'conciertos-editar' concierto_id=concierto.idConcierto %}">Editar</a>

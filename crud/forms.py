@@ -11,16 +11,17 @@ class ConciertoList(ModelForm):
             'recinto',
             'fecha',
             'valores',
+            'venta',
             'imagen'           
         ]
         
         labels = {
             'idConcierto' : 'IdConcierto',            
-            'artista' : 'Artista',
-            
+            'artista' : 'Artista',            
             'recinto' : 'Recinto',
             'fecha' : 'Fecha',
             'valores' : 'Entradas desde',
+            'venta' : 'Link de compra',
             'imagen' : 'Imagen'
         }
         
@@ -30,6 +31,7 @@ class ConciertoList(ModelForm):
             'recinto' : forms.Select(attrs={'class':'form-control'}),
             'fecha' : forms.TextInput(attrs={'class':'form-control'}),
             'valores' : forms.TextInput(attrs={'class':'form-control'}),
+            'venta' : forms.TextInput(attrs={'class':'form-control'}),
             'imagen' : forms.FileInput(attrs={'class':'form-control'})
         }
 
@@ -72,6 +74,7 @@ class ArtistaList(ModelForm):
             'pais',
             'genero',
             'anio',
+            'playlist'
         ]
             
         labels = {
@@ -80,6 +83,7 @@ class ArtistaList(ModelForm):
             'pais' : 'Lugar de origen',
             'genero' : 'Género',
             'anio' : 'Año de debut',
+            'playlist' : 'Playlist'
         }
             
         widgets = {
@@ -88,5 +92,6 @@ class ArtistaList(ModelForm):
             'pais' : forms.TextInput(attrs={'class':'form-control'}),
             'genero' : forms.TextInput(attrs={'class':'form-control'}),
             'anio' : forms.TextInput(attrs={'class':'form-control', 'type' : 'number'}),
+            'playlist' : forms.TextInput(attrs={'class':'form-control'})
         }
         

@@ -3,11 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Artista(models.Model):
-    idArtista = models.CharField(primary_key=True, verbose_name='idArtista', max_length=50)
+    idArtista = models.AutoField(primary_key=True, verbose_name='idArtista')
     nomArtista = models.CharField(verbose_name='Artista', max_length=50)
     pais = models.CharField(verbose_name='País', max_length=50)
     anio = models.CharField(verbose_name='Año de formación', max_length=4)
     genero = models.CharField(verbose_name='Género', max_length=70, null=True)
+    playlist = models.URLField(verbose_name='Playlist', max_length=500, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Artista'
@@ -18,7 +19,7 @@ class Artista(models.Model):
         return self.nomArtista
     
 class Recinto(models.Model):
-    idRecinto = models.CharField(primary_key=True, verbose_name='idRecinto', max_length=50)
+    idRecinto = models.AutoField(primary_key=True, verbose_name='idRecinto')
     nomRecinto = models.CharField(verbose_name='Recinto', max_length=80)
     capacidad = models.IntegerField(verbose_name='Capacidad')
     comuna = models.CharField(verbose_name='Comuna', max_length=50)
@@ -29,11 +30,12 @@ class Recinto(models.Model):
         return self.nomRecinto
     
 class Concierto(models.Model):
-    idConcierto = models.CharField(primary_key=True, verbose_name='idConcierto', max_length=50)
+    idConcierto = models.AutoField(primary_key=True, verbose_name='idConcierto')
     artista = models.ForeignKey(Artista, verbose_name='Artista', on_delete=models.CASCADE)
     recinto = models.ForeignKey(Recinto, verbose_name='Recinto', on_delete=models.CASCADE)
     fecha = models.DateTimeField(verbose_name='Fecha', max_length=60)
     valores = models.CharField(verbose_name='Entradas desde', max_length=500)
+    venta = models.URLField(verbose_name='Link de venta', max_length=500, null=True, blank=True)
     imagen = models.ImageField(verbose_name='Imagen', upload_to='concierto', null=True, blank=True)
     
     class Meta:
