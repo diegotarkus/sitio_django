@@ -8,6 +8,10 @@ a{
     color: rgb(255, 255, 255);
 }
 
+.navbar-custom{
+    background-color: rgb(29, 110, 29);
+}
+
 body{
     background-color: rgb(131, 141, 236);
     background-blend-mode: darken   ;

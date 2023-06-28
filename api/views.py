@@ -66,4 +66,4 @@ def concierto_detail(request, concierto_id):
     
     elif request.method == 'DELETE':
         concierto.delete()
-        return Response({'mensaje':'El concierto {} ha sido eliminado de la base de datos'.format(concierto_id)},status=status.HTTP_204_NO_CONTENT)
+        return Response({'mensaje':'El concierto {} ha sido eliminado'.format(concierto_id)},status=status.HTTP_204_NO_CONTENT)
