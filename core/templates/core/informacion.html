@@ -30,7 +30,8 @@
                 <li class="mb-2">Fecha: <p class="fw-bold">{{concierto.fecha}}</p></li>
                 <li class="mb-2">Valores: <p class="fw-bold">{{concierto.valores}}</p></li>
                 <li class="mb-2">Tickets a la venta: <p class="fw-bold">{{concierto.recinto.capacidad}}</p></li>
-                <li class="mb-2"><a class="btn btn-dark" href="{{concierto.artista.playlist}}">Playlist</a> ||  <a class="btn btn-success" href="{{concierto.venta}}">Compra tus entradas</a></li>
+                <li class="mb-2"><a class="btn btn-dark m-2" href="{{concierto.artista.playlist}}" target="_blank">Playlist</a> ||  <a class="btn btn-success m-2" href="{{concierto.venta}}" target="_blank">Compra tus entradas</a>
+                    || <a class="btn btn-danger m-2" href="{% url 'conciertos' %}" target="_self">Volver</a></li>
             </ul>
         </div>        
     </div>

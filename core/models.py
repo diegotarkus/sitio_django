@@ -11,9 +11,9 @@ class DatosContacto(models.Model):
     mensaje = models.CharField(verbose_name='Mensaje',max_length=100)
     
     class Meta:
-        verbose_name = 'nombre'
-        verbose_name_plural = 'nombres'
+        verbose_name = 'contacto'
+        verbose_name_plural = 'contactos'
         ordering = ['id']
         
     def __str__(self) -> str:
-        return self.id   
+        return self.nombre   
