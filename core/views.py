@@ -9,10 +9,15 @@ def root(request):
     return redirect('/home')
 
 def home(request):
-    return render(request, 'core/home.html')
+    context = {'conciertos': Concierto.objects.all()}
+    return render(request,'core/home.html',context)
 
 def conciertos(request):
     context = {'conciertos': Concierto.objects.all()}
+    return render(request,'core/conciertos.html',context)
+
+def conciertos_recinto(request, recinto):
+    context = {'conciertos': Concierto.objects.filter(recinto = recinto),'recintos': Recinto.objects.all()}
     return render(request,'core/conciertos.html',context)
 
 def informacion(request, concierto_id):

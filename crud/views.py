@@ -79,6 +79,17 @@ def concierto_info(request, concierto_id):
     except:
         return redirect(reverse('crud-conciertos') + '?FAIL')
     
+def conciertos_por_recinto(request, recinto):
+    try:
+        recintos = Concierto.objects.filter(recinto=recinto)
+        if recintos:
+            context = {'recintos':recintos}
+            return render(request,'crud/conciertos.html',context)
+        else:
+            return redirect(reverse('conciertos') + '?FAIL')
+    except:
+        return redirect(reverse('conciertos') + '?FAIL')
+    
 ## ARTISTAS
 
 def lista_artistas(request):

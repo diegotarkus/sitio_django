@@ -4,8 +4,12 @@ a{
 
 }
 
+#text{
+    color: rgb(214, 186, 176);
+}
+
 body{
-    background-color: darkseagreen;
+    background-color: rgb(131, 141, 236);
     background-blend-mode: darken   ;
     padding-top: 1rem;
     padding-left: 2rem;
@@ -36,7 +40,7 @@ small{
 }
 
 footer{
-    background-color: aquamarine;
+    background-color: rgb(100, 202, 168);
     margin-top: 1rem;
     padding-top: 1rem;
     list-style-position: inside;

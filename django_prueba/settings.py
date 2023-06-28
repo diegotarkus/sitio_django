@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'core',
     'crud',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +112,7 @@ LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Santiago'
 
-DATE_FORMAT = '%l %d.%m.%Y'
+DATE_FORMAT = "d/m/Y"
 
 USE_I18N = True
 

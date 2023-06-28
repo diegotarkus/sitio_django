@@ -9,8 +9,8 @@
 <div class="container-fluid">
     <div class="col-ms-3" style="padding-top:1rem">
 
-        <h2>Portal Conciertos</h2>
-        <h3>Infomación de próximos conciertos.</h3>
+        <h2 id="text">Portal Conciertos</h2>
+        <h3 id="text">Infomación de próximos conciertos.</h3>
     </div>
 </div>
 
@@ -18,13 +18,13 @@
 <div class="container-fluid">
   <div>
     <div class="container mt-5">
-      <h5>Bienvenido a tu portal de conciertos, donde podrás encontrar información acerca de los valores, fechas,
+      <h5 id="text">Bienvenido a tu portal de conciertos, donde podrás encontrar información acerca de los valores, fechas,
         lugares de tus artistas favoritos y sus visitas a nuestro país!
       </h5>
 
       <br>
 
-      <p style="border:1px">Además de ser un importante proyecto para nuestra clase de programación web, donde intentamos aplicar lo aprendido en lenguaje
+      <p id="text" style="border:1px">Además de ser un importante proyecto para nuestra clase de programación web, donde intentamos aplicar lo aprendido en lenguaje
         HTML, CSS, JS y sus librerías.
       </p>
     </div>
@@ -46,55 +46,18 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
     </div>
+    
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{% static 'img/amarazul.jpg' %}" class="d-block w-100 object-fit-scale border rounded"
-          alt="AmarAzul" width="600" height="700">
-        <div id="cap-carr" class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
-          <h5><a href="{% url 'conciertos'%}">AMAR AZUL</a></h5>
-          <p>Movistar Arena - 14 de Julio</p>
+      {% for c in conciertos %}
+      <div class="carousel-item {% if forloop.first %} active {% endif %}"> 
+                               
+        <img src="{{c.imagen.url}}" alt="{{c.artista}}" class="d-block w-100 object-fit-scale border rounded" width="600" height="700">
+        <div  class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
+          <h5><a href="{% url 'informacion' concierto_id=c.idConcierto%}">{{c.artista}}</a></h5>
+          <p>{{c.recinto}} - {{c.fecha}}</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/lucybell.png' %}" class="d-block w-100 object-fit-scale border rounded"
-          alt="Lucybell" width="600" height="700">
-        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
-          <h5><a href="{% url 'conciertos'%}">LUCYBELL</a></h5>
-          <p>Movistar Arena - 18 de Agosto</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/jaivas.jpg' %}" class="d-block w-100 object-fit-scale border rounded" alt="Jaivas"
-          width="600" height="700">
-        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
-          <h5><a href="{% url 'conciertos'%}">LOS JAIVAS</a></h5>
-          <p>Movistar Arena - 17 de Agosto</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/luismiguel.png' %}" class="d-block w-100 object-fit-scale border rounded"
-          alt="Luismi" width="600" height="700">
-        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
-          <h5><a href="{% url 'conciertos'%}">LUIS MIGUEL</a></h5>
-          <p>Movistar Arena - 21, 22 y 25 de Agosto</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/lfc.png' %}" class="d-block w-100 object-fit-scale border rounded" alt="Cadillacs"
-          width="600" height="700">
-        <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
-          <h5><a href="{% url 'conciertos'%}">LOS FABULOSOS CADILLACS</a></h5>
-          <p>Quinta Vergara - 14 de Julio</p>
-        </div>
-      </div>  
-        <div class="carousel-item">
-          <img src="{% static 'img/santaferia.jpg' %}" class="d-block w-100 object-fit-scale border rounded" alt="S"
-            width="600" height="700">
-          <div class="carousel-caption d-none d-md-block p-3.5 text-bg-dark bg-opacity-100">
-            <h5><a href="{% url 'conciertos'%}">SANTAFERIA</a></h5>
-            <p>Teatro Caupolicán - 14 de Agosto</p>
-          </div>
-        </div>
+      {% endfor %}
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
           data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

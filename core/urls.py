@@ -5,6 +5,7 @@ urlpatterns = [
     path('', root),
     path('home/', home, name='home'),
     path('conciertos/', conciertos, name='conciertos'),
+    path('conciertos/recinto/<recinto>', conciertos_recinto, name='conciertos-recinto'),
     path('contact/', contacto, name='contact'),
     path('api/', api, name='api'),
     path('about/', about, name='about'),

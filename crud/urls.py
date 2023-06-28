@@ -8,6 +8,7 @@ urlpatterns = [
     path('conciertos/editar/<str:concierto_id>', concierto_editar, name='conciertos-editar'),
     path('conciertos/<str:concierto_id>/borrar', concierto_borrar, name='conciertos-borrar'),
     path('conciertos/info/<str:concierto_id>', concierto_info, name='conciertos-info'),
+    path('conciertos/recintos/<recinto>', conciertos_por_recinto, name="concierto-recinto"),
     path('artistas/', lista_artistas, name='artistas'),
     path('artistas/nuevo', artista_nuevo, name='artistas-nuevo'),
     path('artistas/editar/<str:artista_id>', artista_editar, name='artistas-editar'),
